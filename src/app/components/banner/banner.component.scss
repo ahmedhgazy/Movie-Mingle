@@ -1,0 +1,8 @@
+@import '../../colors/colors';
+h2 {
+  background-color: $secondary-color;
+  padding: 5px;
+  width: fit-content;
+  border-radius: 7px;
+  color: black;
+}

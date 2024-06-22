@@ -1,0 +1,22 @@
+<a
+  class="show-item mb-2 me-0"
+  *ngIf="showItem"
+  [routerLink]="'/detail/' + showItem.id + '/' + showType"
+>
+  <div class="show-item-rating rounded-4">
+    <i class="pi pi-star-fill"></i>
+    <span>{{ showItem.vote_average | roundToFirstDecimal }}</span>
+  </div>
+  <div class="show-item-image">
+    <img
+      [src]="imageBaseUrl + '/w500/' + showItem.poster_path"
+      [alt]="showItem.title"
+    />
+  </div>
+  <!-- <div class="show-item-title">
+    {{ showItem.original_title }}
+  </div> -->
+  <div class="show-item-release-date rounded-4" *ngIf="showItem.release_date">
+    <span>{{ showItem.release_date | date : 'yyyy' }}</span>
+  </div>
+</a>

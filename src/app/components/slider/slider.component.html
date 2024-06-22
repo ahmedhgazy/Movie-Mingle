@@ -1,0 +1,30 @@
+<div class="slider mb-3" *ngIf="slides">
+  <ng-container *ngFor="let movie of slides; let movieIndex = index">
+    <div class="slide" *ngIf="movieIndex === slideIndex" @slideFade>
+      <div class="slide-bg">
+        <img
+          [src]="imagesBaseUrl + 'w1280' + movie.backdrop_path"
+          [alt]="movie.title"
+        />
+      </div>
+      <div class="slide-pane">
+        <h2 class="title">{{ movie.original_title }}</h2>
+        <div class="meta-data">
+          <div class="rating">
+            <i class="pi pi-star-fill"></i>
+            <i class="pi pi-star-fill"></i>
+            <i class="pi pi-star-fill"></i>
+            <i class="pi pi-star-half-fill"></i>
+            <span>{{ movie.vote_average | roundToFirstDecimal }}</span>
+          </div>
+          <div class="info">
+            <span class="date">{{
+              movie.release_date | date : 'mediumDate'
+            }}</span>
+          </div>
+        </div>
+        <div class="description">{{ movie.overview }}</div>
+      </div>
+    </div>
+  </ng-container>
+</div>

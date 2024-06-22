@@ -1,0 +1,10 @@
+<div class="banner row" *ngIf="shows">
+  <div class="col-12 mb-2 mt-2">
+    <h2>
+      {{ title }}
+    </h2>
+  </div>
+  <div class="col-xs-2 col-sm-6 col-md-4 col-lg-2" *ngFor="let show of shows">
+    <app-show-item [showItem]="show" [showType]="showsType"></app-show-item>
+  </div>
+</div>

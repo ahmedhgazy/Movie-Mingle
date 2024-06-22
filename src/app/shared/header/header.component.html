@@ -1,0 +1,28 @@
+<div class="header">
+  <div class="container-dev">
+    <a routerLink="/" class="logo">MovieMingle</a>
+    <ul class="main-nav">
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/list/movie">Movies</a></li>
+      <li><a routerLink="/list/tv">Shows</a></li>
+      <li class="mega">
+        <a (click)="showMM()" aria-hidden="true">Genres</a>
+        <div class="mega-menu">
+          <ng-container *ngIf="genres$ | async as genres">
+            <ul class="links">
+              <li *ngFor="let genre of genres">
+                <a
+                  (click)="hideMegaMenue()"
+                  [routerLink]="'/genres/' + genre.id"
+                  class="d-flex justify-content-between"
+                >
+                  {{ genre.name }}</a
+                >
+              </li>
+            </ul>
+          </ng-container>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
