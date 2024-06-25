@@ -4,8 +4,7 @@ A website for movies and tv shows
 using angular 16 , primeNg,bootstrap5 ,
 and The Movie Database API [TMDB API]
 ## Demo:
-https://movie-mingle-drab.vercel.app/
-
+https://ahmedhgazy.github.io/Movie-Mingle/
 ## Info
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
 
