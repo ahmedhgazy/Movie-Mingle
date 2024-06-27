@@ -1,6 +1,15 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  OnInit,
+  Signal,
+  computed,
+  inject,
+  signal,
+} from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Observable, filter } from 'rxjs';
+import { LightService } from 'src/app/services/light-mode.service';
 import { MoviesService } from 'src/app/services/movies.service';
 import { Genre, Movie } from 'src/app/types/movie';
 @Component({
@@ -18,13 +27,13 @@ export class HeaderComponent implements OnInit {
     private router: Router
   ) {}
 
+  mode = signal<string>('');
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.genreId = params['genreId'];
       this.shows$ = this.mService.getMoviesByGenre(this.genreId);
     });
     this.genres$ = this.mService.getMoviesGenres();
- 
   }
 
   isMegaMenueShown = false;

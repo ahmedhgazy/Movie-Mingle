@@ -1,14 +1,13 @@
-import { Component } from '@angular/core'
-
+import { Component, inject } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { LightService } from './services/light-mode.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'ngFlix'
-
-  func() {
-    console.log('any string')
+  constructor(private translate: TranslateService) {
+    translate.use('en');
   }
 }
